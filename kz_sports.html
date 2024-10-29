@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 1</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <header class="bg-primary text-white p-3 mb-4">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <a class="navbar-brand" href="index.html">Спортивные новости</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ftbl.html">Футбол</a></li>
+                        <li class="nav-item"><a class="nav-link" href="mma.html">ММА</a></li>
+                        <li class="nav-item"><a class="nav-link" href="kz_sports.html">Казахстан</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+                        <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="navbarTime" id="datetime"></div>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <h2>Новости казахстанского спорта</h2>
+        <section class="container row row-cols-2">
+            <div class="col-sm-12">
+                <p>IBF наградила "казахского короля" за нокаут в титульном бою</p>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <figure>
+                    <img src="boxer.webp" alt="Султан Заурбек" class="img-fluid">
+                    <figcaption>Султан Заурбек</figcaption>
+                </figure>
+            </div>
+            <div class="col-sm-6">
+                <blockquote cite="https://tengrisport.kz/trends/dana-uayt-nazval-luchshih-boytsov-za-vsyu-istoriyu-UFC-547540/">
+                    Так, во втором полулегком весе казахстанец Султан Заурбек поднялся на две позиции и теперь занимает девятую строчку. Свой последний бой "Казахский король нокаутов" провел в июне в Болтоне (Великобритания), где в первом раунде нокаутировал аргентинца Романа Рубена Рейносо и завоевал титул WBA Continental во втором полулегком весе.
+                </blockquote>
+            </div>
+        </section>
+    </main>
+    <br>
+    <main class="container">
+        <section class="container row row-cols-2">
+            <div class="col-sm-12">
+                <p>«Барыс» объявил о подписании известного американского форварда</p>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <figure>
+                    <img src="hockey.webp" alt="Чейз Де Лео" class="img-fluid">
+                    <figcaption>Чейз Де Лео</figcaption>
+                </figure>
+            </div>
+            <div class="col-sm-6">
+                <blockquote cite="https://www.sports.kz/news/baryis-obyyavil-opodpisanii-izvestnogo-amerikanskogo-forvarda">
+                    „Барыс“ официально объявляет о подписании Чейза Де Лео. Односторонний контракт с американским нападающим рассчитан на один сезон. Всю свою карьеру форвард провёл в Северной Америке. В 2014-м году он был выбран „Виннипег Джетс“ на драфте НХЛ и сыграл более 500 матчей в АХЛ.
+                </blockquote>
+            </div>
+        </section>
+    </main>
+        <br>
+        <section class="kz">
+            <p>Экс-тренер Соболенко назвал Рыбакиной главное условие для победы над Ариной</p>
+            <figure>
+                <img src="tennis.webp" alt="Рыбакина и Соболенко" class="img-fluid">
+                <figcaption>Рыбакина и Соболенко</figcaption>
+            </figure>
+            <blockquote cite="https://www.sports.kz/news/eks-trener-sobolenko-nazval-ryibakinoy-glavnoe-uslovie-dlya-pobedyi-nad-arinoy">
+                "Разница между ними в чемпионской гонке небольшая. Свентек играет много турниров, которые первая ракетка не должна играть: тот же 250-тысячник в Варшаве. Она добирает очки за счет количества турниров. Арина уже в прошлом году была лучше. Она может проиграть только сама. Я бы сказал, что именно обыграть Соболенко могут только три-четыре теннисистки, и то только в том случае, если они будут в наилучшей форме: Елена Рыбакина, Аманда Анисимова, Паула Бадоса. Это те, кто могут использовать силу Арины против нее" — сказал Турсунов            </blockquote>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; Бекзат Кайрешов. SE-2321.</p>
+        <button onclick="openPopup()" class="btn btn-primary">Подписаться на новости</button>
+                <div class="popup" id="popupForm">
+                    <span class="close" onclick="closePopup()">X</span>
+                    <h2 style="color: white;">Подписаться на новости</h2>
+                    <form name="subscribeForm" onsubmit="return validateForm()">
+                        <label for="email">Email:</label><br>
+                        <input type="email" class="form-control" id="email" placeholder="Введите email"><br><br>
+                        <button type="submit" class="btn btn-primary">Подписаться</button>
+                    </form>
+                </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 1</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="bg-primary text-white p-3 mb-4">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <a class="navbar-brand" href="index.html">Спортивные новости</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ftbl.html">Футбол</a></li>
+                        <li class="nav-item"><a class="nav-link" href="mma.html">ММА</a></li>
+                        <li class="nav-item"><a class="nav-link" href="kz_sports.html">Казахстан</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+                        <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="navbarTime" id="datetime"></div>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <section class="mb-4">
+            <h2>Часто задаваемые вопросы (FAQ)</h2>
+            <div class="accordion">
+                <button aria-expanded="false">Что такое спортивные новости?</button>
+                <div class="accordion-content">
+                    <p>Спортивные новости охватывают события, происходящие в мире спорта, такие как результаты матчей, информация о спортсменах и многое другое.</p>
+                </div>
+        
+                <button aria-expanded="false">Как часто обновляются новости?</button>
+                <div class="accordion-content">
+                    <p>Новости обновляются в режиме реального времени по мере поступления информации от репортеров.</p>
+                </div>
+        
+                <button aria-expanded="false">Можно ли подписаться на обновления?</button>
+                <div class="accordion-content">
+                    <p>Да, вы можете подписаться на обновления, указав свой email в форме подписки на главной странице.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <main class="container">
+        <section class="mb-4">
+            <p id="rating-message">Оцените нашу работу</p>
+            <div class="rating">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+              </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; Бекзат Кайрешов. SE-2321.</p>
+        <button onclick="openPopup()" class="btn btn-primary">Подписаться на новости</button>
+                <div class="popup" id="popupForm">
+                    <span class="close" onclick="closePopup()">X</span>
+                    <h2 style="color: white;">Подписаться на новости</h2>
+                    <form name="subscribeForm" onsubmit="return validateForm()">
+                        <label for="email">Email:</label><br>
+                        <input type="email" class="form-control" id="email" placeholder="Введите email"><br><br>
+                        <button type="submit" class="btn btn-primary">Подписаться</button>
+                    </form>
+                </div>
+    </footer>
+    <script>
+        const items = document.querySelectorAll('.accordion button');
+
+        function toggleAccordion() {
+            const itemToggle = this.getAttribute('aria-expanded');
+
+            for (let i = 0; i < items.length; i++) {
+                items[i].setAttribute('aria-expanded', 'false');
+                items[i].nextElementSibling.style.maxHeight = null;
+            }
+
+            if (itemToggle === 'false') {
+                this.setAttribute('aria-expanded', 'true');
+                this.nextElementSibling.style.maxHeight = this.nextElementSibling.scrollHeight + 'px';
+            }
+        }
+
+        items.forEach(item => item.addEventListener('click', toggleAccordion));
+
+        const stars = document.querySelectorAll('.star');
+        const message = document.getElementById('rating-message');
+
+        stars.forEach(star => {
+        star.addEventListener('click', () => {
+            const rating = star.getAttribute('data-value');
+            message.textContent = `Вы поставили ${rating} звезды!`;
+
+            stars.forEach(s => s.style.color = '');
+            star.style.color = 'gold';
+        });
+        });
+    </script>
+</body>
+</html>
